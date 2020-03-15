@@ -1,0 +1,31 @@
+@import '../responsive/responsive';
+@import '../variables/variables';
+
+* {
+    outline-width: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $BLACK-A;
+}
+
+input[type=text],
+button{
+    border: none;
+    padding: 1.5em;
+    font-size: 16px;
+    @include respond-to(xxs){
+        padding: 0.8em;
+    }
+    @include respond-to(xs){
+        padding: 1em;
+    }
+}
+
+button{
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+}

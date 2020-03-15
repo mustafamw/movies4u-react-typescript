@@ -1,0 +1,22 @@
+@import './breakpoints';
+
+@mixin respond-to($media) {
+  @if $media == xxs {
+    @media (max-width: $screen-xxs-max) { @content }
+  }
+  @else if $media == xs {
+    @media (min-width: $screen-xs) and (max-width: $screen-xs-max) { @content }
+  }
+  @else if $media == sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { @content }
+  }
+  @else if $media == md {
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) { @content }
+  }
+  @else if $media == lg {
+    @media (min-width: $screen-lg) and (max-width: $screen-lg-max) { @content }
+  }
+  @else if $media == xl {
+    @media (min-width: $screen-xl) { @content }
+  }
+}

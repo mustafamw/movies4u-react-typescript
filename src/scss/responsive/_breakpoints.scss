@@ -1,0 +1,8 @@
+@import './variables';
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xxs-max: ($screen-xs - 1);
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg);
+$screen-lg-max: ($screen-xl + 1);

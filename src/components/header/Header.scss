@@ -1,0 +1,32 @@
+@import '../../scss/global/global';
+
+header {
+    background: $BLACK-A;
+    color: $WHITE-A;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    h1 {
+        margin: 0px;
+        padding: 0px;
+    }
+    a {
+        color: $WHITE-A;
+    }
+
+    @include respond-to(xxs){
+        padding-top: 4px;
+        padding-bottom: 4px;
+        h1{
+            font-size: 20px
+        }
+    }
+    @include respond-to(xs){
+        padding-top: 4px;
+        padding-bottom: 4px;
+        h1{
+            font-size: 20px
+        }
+    }
+}

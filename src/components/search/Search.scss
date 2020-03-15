@@ -1,0 +1,17 @@
+
+@import '../../scss/global/global';
+
+.search-container {
+    display: flex;
+    margin-top: 1%;
+    margin-bottom: 10px;
+    input {
+        width: 100%;
+        background: $GREY-B;
+    }
+    button {
+        background: $BLUE-A;
+        color: $WHITE-A;
+        box-sizing: border-box;
+    }
+}

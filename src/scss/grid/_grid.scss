@@ -1,0 +1,45 @@
+.grid-container-25 {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: 17px;
+    justify-content: space-evenly;
+
+    .grid-item {
+        text-align: center;
+    }
+
+    @include respond-to(xxs){
+        grid-template-columns: 100%;
+    }
+    @include respond-to(xs){
+        grid-template-columns: 100%;
+    }
+    @include respond-to(sm){
+        grid-template-columns: 49% 49%;
+        grid-gap: 17px;
+    }
+    @include respond-to(md){
+        grid-template-columns: 32.33% 32.33% 32.33%;
+    }
+}
+
+
+.grid-container-40-60 {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: 39% 59%;
+    grid-gap: 17px;
+    justify-content: space-evenly;
+
+    .grid-item {
+
+    }
+
+    @include respond-to(xxs){
+        grid-template-columns: 100%;
+    }
+    @include respond-to(xs){
+        grid-template-columns: 100%;
+    }
+}

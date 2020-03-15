@@ -1,0 +1,24 @@
+@import '../../scss/global/global';
+
+.movie-page {
+    text-align: center;
+    .back{
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        font-size: 20px;
+        clear: both;
+        & > div {
+            display: inline-block;
+            cursor: pointer;
+        }
+        button {
+            padding: 1em;
+            padding-left: 0px;
+        }
+    }
+    .loading {
+        width: 70px;
+        margin: 0px auto;
+    }
+}
