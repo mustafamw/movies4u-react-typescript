@@ -1,5 +1,6 @@
 import React from 'react';
 import './NoResultsFound.scss';
+import noResults from '../../assets/img/no_result.gif';
 
 class NoResultsFound extends React.Component{
   
@@ -7,7 +8,7 @@ class NoResultsFound extends React.Component{
 
     return (
       <div className="no-results-found">
-        <h4>No Results Found</h4>
+        <img alt="no results" srcSet={noResults}/>
       </div>
     );
   }

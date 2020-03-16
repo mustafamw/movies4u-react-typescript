@@ -1,3 +1,18 @@
-.no-results-found {
+@import '../../scss/global/global';
 
+.no-results-found {
+    overflow: hidden;
+    img {
+        width: 100%;
+        min-width: 320px;
+        max-width: 900px;
+        margin-top: -80px;
+        @include respond-to(xxs){ 
+            margin-top: 0px;
+        }
+    
+        @include respond-to(xs){ 
+            margin-top: 0px;
+        }
+    }
 }
