@@ -15,8 +15,6 @@ class Movie extends React.Component<MovieProps>{
       movie_title = movie.title;
     } else if (movie?.original_title) {
       movie_title = movie?.original_title
-    } else if (movie?.name) {
-      movie_title = movie?.name
     }
 
     let vote_avergae;

@@ -12,9 +12,11 @@ class Movies extends React.Component<MoviesProps>{
     })
 
     return (
-      <ul className="grid-container-25">
-        {results}
-      </ul>
+      <div className="movies">
+        <ul className="grid-container-25">
+          {results}
+        </ul>
+      </div>
     );
   }
 }

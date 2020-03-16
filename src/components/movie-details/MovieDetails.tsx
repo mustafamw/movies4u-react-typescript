@@ -28,7 +28,7 @@ class MovieDetails extends React.Component<MovieDbInterface> {
 
         let genres;
         if (genre && genre.length > 0) {
-            genres = <div>
+            genres = <div className="genres">
                 <h3>Genres:</h3>
                 <ul className="tags">
                     {genre}
@@ -42,11 +42,13 @@ class MovieDetails extends React.Component<MovieDbInterface> {
         }
 
         let productions = movie?.production_companies?.map((e, index) => {
-            return (<li key={index} className="grid-item">
-                <img srcSet={`${Configs.imgUrlWidth500}/${e.logo_path}`}
-                    alt={e.name}
-                    onError={(e: any) => { e.target.srcset = placeholder }} />
-            </li>);
+            if(e.logo_path) {
+                return (<li key={index} className="grid-item">
+                    <img srcSet={`${Configs.imgUrlWidth500}/${e.logo_path}`}
+                        alt={e.name}
+                        onError={(e: any) => { e.target.srcset = placeholder }} />
+                </li>);
+            }
         });
 
         let production_companies;
@@ -65,13 +67,22 @@ class MovieDetails extends React.Component<MovieDbInterface> {
         if (movie?.overview && movie?.overview.length > 0) {
             overview = <div>
                 <h3>Overview:</h3>
-                {movie?.overview}
+                <p className="overview">
+                    {movie?.overview}
+                </p>
             </div>;
         }
 
         let release_date;
         if (movie?.release_date) {
             release_date = moment(movie.release_date, 'YYYY-MM--DD').format('DD/MM/YYYY');
+            release_date = <div className="release_date">
+                <h3>Release date:</h3>
+                <p className="date">
+                    {release_date}
+                </p>
+            </div>
+
         }
 
         return (
@@ -89,7 +100,6 @@ class MovieDetails extends React.Component<MovieDbInterface> {
                         <h1>{movie_title}</h1>
                         {overview}
                         {genres}
-                        <h3>Release date:</h3>
                         {release_date}
                         {home_page}
                     </div>

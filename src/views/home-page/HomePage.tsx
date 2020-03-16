@@ -11,8 +11,6 @@ import NoResultsFound from "../../components/no-results-found/NoResultsFound";
 class HomePage extends React.Component<any, MoviesDbInterface> {
 
     private moviesDbService: MoviesDbService = new MoviesDbService();
-    private moviesDb: MoviesDbInterface = {} as MoviesDbInterface;
-
     private searchQuery: SearchInterface = {
         query: '',
         pageNo: 1
@@ -21,16 +19,16 @@ class HomePage extends React.Component<any, MoviesDbInterface> {
     
 
     private getList = () => {
-        if (!this.busy && (!this.moviesDb.total_pages || this.searchQuery.pageNo <= this.moviesDb.total_pages)) {
+        if (!this.busy && (!this.state.total_pages || this.searchQuery.pageNo <= this.state.total_pages)) {
             this.busy = true;
             this.setState({loading: true})
             this.moviesDbService.getList(this.searchQuery)
                 .then((respone: MoviesDbInterface) => {
                     if (respone.results && respone.results.length > 0) {
                         this.setState({ 
-                            results: this.state?.results?.concat(respone.results)
+                            results: this.state?.results?.concat(respone.results),
+                            total_pages: respone.total_pages
                         })
-                        this.moviesDb = respone;
                     } else {
                         this.setState({results: []})
                     }

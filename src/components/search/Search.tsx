@@ -11,9 +11,12 @@ class Search extends React.Component<SearchProps, SearchInterface>{
       query: '',
       pageNo: 1
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  componentDidMount = () => {
+  componentDidMount(){
     if (this.props.defaultSearch && this.props.defaultSearch.length > 0) {
       this.setState({
         query: this.props.defaultSearch
@@ -21,13 +24,13 @@ class Search extends React.Component<SearchProps, SearchInterface>{
     }
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       query: e.target.value
-    })
+    });
   }
 
-  handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  handleKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
     switch (e.key) {
       case "Enter":
         this.search();
@@ -35,8 +38,8 @@ class Search extends React.Component<SearchProps, SearchInterface>{
     }
   }
 
-  search = () => {
-    if (typeof this.props.onSearch === 'function') {
+  search() {
+    if (typeof this.props.onSearch === 'function' && this.state.query && this.state.query.length > 0) {
       const search: SearchInterface = this.state;
       this.props.onSearch(search)
     }
